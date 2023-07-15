@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MoveDuck;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
+});
+
+
+Route::get('/MoveDuck/{name}', function ($name) {
+    event(new MoveDuck($name));
 });
